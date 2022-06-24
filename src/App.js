@@ -4,6 +4,9 @@ import Navbar from './Navbar';
 
 import { Routes, Route } from "react-router-dom";
 import { publicRoute } from './routes/publicRoute';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 
@@ -11,6 +14,9 @@ import { publicRoute } from './routes/publicRoute';
 
 
 function App() {
+  useEffect(()=>{
+    AOS.init();
+  },[])
   return (
     <div className="">
     <Navbar>
