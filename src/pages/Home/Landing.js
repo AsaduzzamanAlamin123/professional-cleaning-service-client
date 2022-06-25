@@ -14,7 +14,7 @@ const Landing = () => {
             <button class="btn btn-primary"data-aos="zoom-in"  data-aos-duration="3000"   data-aos-delay="14000">Get Started</button>
           </div>
           <div className='mb-6 sm:mb-0'data-aos="fade-up-left" data-aos-duration="3000">
-          <img className='mr-3 sm:mr-o ' src={Cleanner} />
+          <img className='mr-3 sm:mr-o hidden sm:block' src={Cleanner} />
           </div>
         </div>
       </div>
