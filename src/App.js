@@ -1,19 +1,16 @@
-
 import './App.css';
 import Navbar from './Navbar';
-
 import { Routes, Route } from "react-router-dom";
 import { publicRoute } from './routes/publicRoute';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import Services from './pages/Services';
 import RequireAuth from './authentication/RequireAuth';
-import About from './pages/About';
-
-
-
-
+import { privetRoute } from './authentication/PrivetRoute';
+import AdminRoute from './authentication/AdminRoute';
+import DashBoard from './pages/DashBoard/DashBoard';
+import AddAdmin from './pages/DashBoard/AddAdmin';
+import AddService from './pages/DashBoard/AddService';
 
 
 function App() {
@@ -24,26 +21,24 @@ function App() {
     <div className="">
     <Navbar>
     <Routes>
-    {/* <Route path='/' element={<Home></Home>}></Route>
-    <Route path='/about' element={<About></About>}></Route>
-    <Route path='/services' element={<Services></Services>}></Route>
-    <Route path='/contact' element={<Contact></Contact>}></Route>
-    <Route path='/login' element={<Login></Login>}></Route> */}
-
     {
       publicRoute.map((route , index) => <Route path={route.path} key={index} element={<route.Component></route.Component>}></Route>)
     }
-    {/* one different way to do privet route */}
-    {/* <Route path='/services' element={<RequireAuth>
-      <Services></Services>
-    </RequireAuth>}></Route>
-    <Route path='/about' element={<RequireAuth><About></About></RequireAuth>}></Route> */}
-    {/* the best way to emplemetn privet route and thats name is nested route */}
-    <Route element={<RequireAuth></RequireAuth>}>
-      <Route path ='/services' element={<Services></Services>}></Route>
-      <Route path ='/about' element={<About></About>}></Route>
+     <Route element={<RequireAuth></RequireAuth>}>
+      {
+        privetRoute.map((proute , index) => <Route key={index} path ={proute.path} element={<proute.Component></proute.Component>}></Route> )
+      }
+      </Route>
+      <Route element={<AdminRoute></AdminRoute>}>
+        <Route path='/dashboard' element={<DashBoard></DashBoard>}>
+        
+                    <Route path='add-service' element={<AddService></AddService>}></Route>
+                    <Route path='add-admin' element={<AddAdmin></AddAdmin>}></Route>
+                
 
-    </Route>
+        </Route>
+
+      </Route>
     </Routes>
     </Navbar>
     
