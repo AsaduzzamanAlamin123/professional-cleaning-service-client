@@ -2,7 +2,7 @@ import React from 'react';
 
 const Login = () => {
     return (
-        <div className='h-screen flex justify-center items-center '>
+        <div className='h-screen flex justify-center items-center bg-primary'>
             <div class="card w-96 bg-base-100 shadow-xl " data-aos="fade-up"
      data-aos-duration="3000">
         <div class="card-body">
@@ -22,7 +22,7 @@ const Login = () => {
           </form>
           <div class="divider">OR</div>
 
-          <button className='uppercase btn btn-wide btn-ghost hover:btn-primary w-full'> CONTINUE WITH GOOGLE</button>
+          <button className='uppercase btn btn-wide btn-glass hover:btn-primary w-full'> CONTINUE WITH GOOGLE</button>
         </div>
       </div>
         </div>
